@@ -8,11 +8,12 @@ class SLLNode
 {
 public:
 	SLLNode();
-	SLLNode(T i, SLLNode *in = NULL);
+	SLLNode(const T& i, SLLNode *in = NULL);
 
 	SLLNode* getNext();
 	void setNext(SLLNode* in);
 	T getinfo();
+	
 
 private:
 	SLLNode* next;
@@ -27,7 +28,7 @@ SLLNode<T>::SLLNode()
 }
 
 template <typename T>
-SLLNode<T>::SLLNode(T i, SLLNode* in)
+SLLNode<T>::SLLNode(const T& i, SLLNode* in)
 {
 	info = i;
 	next = in;
@@ -70,6 +71,8 @@ public:
 	T deleteFromTail();
 	T deleteNode(T i);      //删除含有i的数据节点
 	bool isInList(T i) const;    //是否在list中
+
+	void reserve();         //翻转链表
 
 private:
 	SLLNode<T>* head, *tail;
@@ -270,4 +273,36 @@ bool SLList<T>::isInList(T i) const
 	return !(tmp == NULL);
 }
 
+
+template <typename T>
+void SLList<T>::reserve()
+{
+	if (isEmpty())
+	{
+		return;
+	}
+	else if (head == tail)
+	{
+		return;
+	}
+	else
+	{
+		//多个点
+		SLLNode<T>* NowNode = head->getNext();
+		SLLNode<T>* PreNode = head;
+		SLLNode<T>* tmp;
+		while (NowNode != NULL)
+		{
+			tmp = NowNode->getNext();
+			NowNode->setNext(PreNode);
+			PreNode = NowNode;
+			NowNode = tmp;
+		}
+
+		tmp = head;
+		head = tail;
+		tail = tmp;
+
+	}
+}
 
