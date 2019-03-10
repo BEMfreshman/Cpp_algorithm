@@ -1,6 +1,6 @@
 #pragma once
 
-//²ÉÓÃÑ­»·Êı×éÊµÏÖ¶ÓÁĞ
+//é‡‡ç”¨å¾ªç¯æ•°ç»„å®ç°é˜Ÿåˆ—
 
 template <typename T,int size = 100>
 class ArrayQueue
@@ -35,7 +35,7 @@ bool ArrayQueue<T, size>::isEmpty()
 template <typename T,int size>
 bool ArrayQueue<T, size>::isFull()
 {
-	if (first == 0 && last == size - 1) || (first == last + 1)
+	if ((first == 0 && last == size - 1) || (first == last + 1))
 	{
 		return true;
 	}
@@ -84,7 +84,7 @@ const T ArrayQueue<T, size>::denqueue()
 		tmp = storage[first];
 		if (first == last)
 		{
-			//Ö»ÓĞÒ»¸öÔªËØ
+			//åªæœ‰ä¸€ä¸ªå…ƒç´ 
 			first = last = -1;
 		}
 		else if (first == size - 1)

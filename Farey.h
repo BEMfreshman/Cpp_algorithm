@@ -1,6 +1,5 @@
 #pragma once
 
-//Farey·ÖÊý
 
 #include "DLList.h"
 

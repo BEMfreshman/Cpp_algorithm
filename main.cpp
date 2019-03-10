@@ -1,4 +1,4 @@
-//算法测试文件
+//绠楁硶娴嬭瘯鏂囦欢
 
 #include <iostream>
 #include "SLList.h"
@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	
-	////单向链表
+	////鍗曞悜閾捐〃
 	//SLList<int>* p_sl = new SLList<int>;
 
 	//for (int i = 0; i < 10; i++)
@@ -30,7 +30,7 @@ int main()
 	//delete p_sl;
 	
 
-	////双向链表
+	////鍙屽悜閾捐〃
 	//DLList<int>* p_dl = new DLList<int>;
 	//for (int i = 0; i < 10; i++)
 	//{

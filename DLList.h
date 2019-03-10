@@ -1,9 +1,9 @@
 #pragma once
-//Ë«ÏòÁ´±í
+//åŒå‘é“¾è¡¨
 #include <iostream>
 using namespace std;
 
-/*--------Ë«ÏòÁ´±í½Úµã---------------*/
+/*--------åŒå‘é“¾è¡¨èŠ‚ç‚¹---------------*/
 
 template <typename T>
 class DLLNode
@@ -89,7 +89,7 @@ void DLLNode<T>::setNext(DLLNode<T>* next)
 /*-----------------------------------------------*/
 
 
-/*---------------Ë«ÏòÁ´±í------------------------*/
+/*---------------åŒå‘é“¾è¡¨------------------------*/
 
 template <typename T>
 class DLList
@@ -107,7 +107,7 @@ public:
 	void addToHead(const T& i);
 	void addToTail(const T& i);
 	bool InsertAfter(DLLNode<T>* node, const T& i);
-	//ÔÚnodeºóÌí¼Ói
+	//åœ¨nodeåæ·»åŠ i
 
 	DLLNode<T>* const getHead() const;
 	DLLNode<T>* const getTail() const;
@@ -155,14 +155,14 @@ bool DLList<T>::isEmpty()
 template <typename T>
 const T DLList<T>::deleteFromHead()
 {
-	//É¾³ıÍ·²¿½Úµã
+	//åˆ é™¤å¤´éƒ¨èŠ‚ç‚¹
 	if (isEmpty())
 	{
 		throw("Empty List");
 	}
 	else if (head == tail)
 	{
-		//Ö»ÓĞÒ»¸ö½Úµã
+		//åªæœ‰ä¸€ä¸ªèŠ‚ç‚¹
 		T i = head->getInfo();
 		delete head;
 		head = tail = NULL;
@@ -171,7 +171,7 @@ const T DLList<T>::deleteFromHead()
 	}
 	else
 	{
-		//¶à¸ö½Úµã
+		//å¤šä¸ªèŠ‚ç‚¹
 		T i = head->getInfo();
 		DLLNode<T>* newHead = head->getNext();
 		delete head;
@@ -184,14 +184,14 @@ const T DLList<T>::deleteFromHead()
 template <typename T>
 const T DLList<T>::deleteFromTail()
 {
-	//É¾³ıÎ²²¿½Úµã
+	//åˆ é™¤å°¾éƒ¨èŠ‚ç‚¹
 	if (isEmpty())
 	{
 		throw("Empty List");
 	}
 	else if (head == tail)
 	{
-		//Ö»ÓĞÒ»¸ö½Úµã
+		//åªæœ‰ä¸€ä¸ªèŠ‚ç‚¹
 		T i = tail->getInfo();
 		delete tail;
 		head = tail = NULL;
@@ -199,7 +199,7 @@ const T DLList<T>::deleteFromTail()
 	}
 	else
 	{
-		//¶à¸ö½Úµã
+		//å¤šä¸ªèŠ‚ç‚¹
 		T i = tail->getInfo();
 		DLLNode<T>* newTail = tail->getPre();
 		delete tail;
@@ -239,12 +239,12 @@ void DLList<T>::addToHead(const T& i)
 {
 	if (isEmpty())
 	{
-		//¿Õ±í
+		//ç©ºè¡¨
 		head = tail = new DLLNode<T>(i);
 	}
 	else
 	{
-		//¶à¸öµã
+		//å¤šä¸ªç‚¹
 		head = new DLLNode<T>(i, NULL, head);
 		head->getNext()->setPre(head);
 	}
@@ -255,12 +255,12 @@ void DLList<T>::addToTail(const T& i)
 {
 	if (isEmpty())
 	{
-		//¿Õ±í
+		//ç©ºè¡¨
 		head = tail = new DLLNode<T>(i);
 	}
 	else
 	{
-		//¶à¸öµã
+		//å¤šä¸ªç‚¹
 		tail = new DLLNode<T>(i, tail, NULL);
 		tail->getPre()->setNext(tail);
 	}
@@ -286,7 +286,7 @@ bool DLList<T>::InsertAfter(DLLNode<T>* node, const T& i)
 
 		if (findNode == NULL)
 		{
-			//ÎŞ´Ëµã
+			//æ— æ­¤ç‚¹
 			return false;
 		}
 		else

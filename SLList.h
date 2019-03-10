@@ -1,7 +1,7 @@
 #pragma once
 #include <assert.h>
 
-/*---------------Á´±í½Úµã----------------------*/
+/*---------------é“¾è¡¨èŠ‚ç‚¹----------------------*/
 
 template <typename T>
 class SLLNode
@@ -55,7 +55,7 @@ T SLLNode<T>::getinfo()
 /*---------------------------------------------*/
 
 
-/*-----------------µ¥ÏòÁ´±í--------------------*/
+/*-----------------å•å‘é“¾è¡¨--------------------*/
 
 template <typename T>
 class SLList
@@ -64,19 +64,19 @@ public:
 	SLList();
 	~SLList();
 
-	bool isEmpty();                 //ÅĞ¿Õ
-	void addToHead(T i);         //´Ó¿ªÍ·´¦Ìí¼Ó
+	bool isEmpty();                 //åˆ¤ç©º
+	void addToHead(T i);         //ä»å¼€å¤´å¤„æ·»åŠ 
 	void addToTail(T i);
 	T deleteFromHead();
 	T deleteFromTail();
-	T deleteNode(T i);      //É¾³ıº¬ÓĞiµÄÊı¾İ½Úµã
-	bool isInList(T i) const;    //ÊÇ·ñÔÚlistÖĞ
+	T deleteNode(T i);      //åˆ é™¤å«æœ‰içš„æ•°æ®èŠ‚ç‚¹
+	bool isInList(T i) const;    //æ˜¯å¦åœ¨listä¸­
 
-	void reserve();         //·­×ªÁ´±í
+	void reserve();         //ç¿»è½¬é“¾è¡¨
 
 private:
 	SLLNode<T>* head, *tail;
-	//int SLListLength;               //Á´±í³¤¶È
+	//int SLListLength;               //é“¾è¡¨é•¿åº¦
 };
 
 
@@ -117,10 +117,10 @@ void SLList<T>::addToHead(T i)
 template <typename T>
 void SLList<T>::addToTail(T i)
 {
-	SLLNode<T>* p_sl = new SLLNode<T>(i);        //×îºóÒ»¸öµã
+	SLLNode<T>* p_sl = new SLLNode<T>(i);        //æœ€åä¸€ä¸ªç‚¹
 	if (isEmpty())
 	{
-		//Á´±íÖĞÃ»ÓĞÒ»¸öµã
+		//é“¾è¡¨ä¸­æ²¡æœ‰ä¸€ä¸ªç‚¹
 		head = tail = p_sl;
 	}
 	else
@@ -133,15 +133,15 @@ void SLList<T>::addToTail(T i)
 template <typename T>
 T SLList<T>::deleteFromHead()
 {
-	//É¾³ıHead²¿½Úµã
+	//åˆ é™¤Headéƒ¨èŠ‚ç‚¹
 	if (isEmpty())
 	{
-		//¿Õ±í£¬ÎŞÊÂ¿É×ö£¬¼´¿ÌÍË³ö
+		//ç©ºè¡¨ï¼Œæ— äº‹å¯åšï¼Œå³åˆ»é€€å‡º
 		return 0;
 	}
 	else if (head == tail)
 	{
-		//±íÖĞÖ»ÓĞÒ»¸öÔªËØ
+		//è¡¨ä¸­åªæœ‰ä¸€ä¸ªå…ƒç´ 
 		T i = head->getinfo();
 		delete head;
 		head = tail = NULL;
@@ -149,7 +149,7 @@ T SLList<T>::deleteFromHead()
 	}
 	else
 	{
-		//·Ç¿Õ±í
+		//éç©ºè¡¨
 		SLLNode<T>* newHead = head->getNext();
 		T i = head->getinfo();
 		delete head;
@@ -161,7 +161,7 @@ T SLList<T>::deleteFromHead()
 template <typename T>
 T SLList<T>::deleteFromTail()
 {
-	//É¾³ıÎ²²¿½Úµã
+	//åˆ é™¤å°¾éƒ¨èŠ‚ç‚¹
 	if (isEmpty())
 	{
 		return 0;
@@ -200,14 +200,14 @@ T SLList<T>::deleteFromTail()
 template <typename T>
 T SLList<T>::deleteNode(T i)
 {
-	//É¾³ı°üº¬Êı¾İÌåiµÄ½Úµã
+	//åˆ é™¤åŒ…å«æ•°æ®ä½“içš„èŠ‚ç‚¹
 	if (isEmpty())
 	{
 		return 0;
 	}
 	else if (head == tail)
 	{
-		//Ö»ÓĞÒ»¸öµã
+		//åªæœ‰ä¸€ä¸ªç‚¹
 		if (head->getinfo() == i)
 		{
 			T tmp_num = head->getinfo();
@@ -223,7 +223,7 @@ T SLList<T>::deleteNode(T i)
 	}
 	else if (head != tail && head->getinfo() == i)
 	{
-		//¶à¸öµã£¬ÇÒµÚÒ»¸öµãµÄinfo¼´Îªi
+		//å¤šä¸ªç‚¹ï¼Œä¸”ç¬¬ä¸€ä¸ªç‚¹çš„infoå³ä¸ºi
 		T tmp_num = head->getinfo();
 		SLLNode<T>* newhead = head->getNext();
 		delete head;
@@ -232,7 +232,7 @@ T SLList<T>::deleteNode(T i)
 	}
 	else
 	{
-		//¶à¸öµã
+		//å¤šä¸ªç‚¹
 		SLLNode<T>* p_pre;
 		SLLNode<T>* p_now;
 		
@@ -244,7 +244,7 @@ T SLList<T>::deleteNode(T i)
 
 		if (p_now != NULL)
 		{
-			//±íÊ¾ÕÒµ½ÁË
+			//è¡¨ç¤ºæ‰¾åˆ°äº†
 			T tmp_num = p_now->getinfo();
 			p_pre->getNext() = p_now->getNext();
 			if (p_now == tail)
@@ -287,7 +287,7 @@ void SLList<T>::reserve()
 	}
 	else
 	{
-		//¶à¸öµã
+		//å¤šä¸ªç‚¹
 		SLLNode<T>* NowNode = head->getNext();
 		SLLNode<T>* PreNode = head;
 		SLLNode<T>* tmp;
